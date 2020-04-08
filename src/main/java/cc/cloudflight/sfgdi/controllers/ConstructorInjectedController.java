@@ -1,15 +1,17 @@
 package cc.cloudflight.sfgdi.controllers;
 
 import cc.cloudflight.sfgdi.services.GreetingService;
+import org.springframework.stereotype.Controller;
 
-class ConstructorInjectedController {
+@Controller
+public class ConstructorInjectedController {
     private final GreetingService greetingService;
 
     ConstructorInjectedController(GreetingService greetingService) {
         this.greetingService = greetingService;
     }
 
-    String getGreeting() {
+   public String getGreeting() {
         return greetingService.sayGreeting();
     }
 
