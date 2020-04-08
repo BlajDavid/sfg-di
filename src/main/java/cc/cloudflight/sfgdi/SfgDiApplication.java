@@ -1,7 +1,7 @@
 package cc.cloudflight.sfgdi;
 
 import cc.cloudflight.sfgdi.controllers.ConstructorInjectedController;
-import cc.cloudflight.sfgdi.controllers.MyController;
+import cc.cloudflight.sfgdi.controllers.PrimaryController;
 import cc.cloudflight.sfgdi.controllers.PropertyInjectedController;
 import cc.cloudflight.sfgdi.controllers.SetterInjectedController;
 import org.springframework.boot.SpringApplication;
@@ -14,11 +14,9 @@ public class SfgDiApplication {
     public static void main(String[] args) {
         ApplicationContext context = SpringApplication.run(SfgDiApplication.class, args);
 
-        MyController myController = (MyController) context.getBean("myController");
+        PrimaryController primaryController = (PrimaryController) context.getBean("primaryController");
 
-        String greeting = myController.sayHello();
-
-        System.out.println(greeting);
+        System.out.println(primaryController.sayHello());
 
         System.out.println("\n ---------> 1) DI by Property");
         PropertyInjectedController propertyInjectedController =
