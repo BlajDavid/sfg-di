@@ -1,11 +1,16 @@
 package cc.cloudflight.sfgdi.controllers;
 
 import cc.cloudflight.sfgdi.services.GreetingService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
-class PropertyInjectedController {
-    GreetingService greetingService;
+@Controller
+public class PropertyInjectedController {
 
-    String getGreeting() {
+    @Autowired
+    public GreetingService greetingService;
+
+    public String getGreeting() {
         return greetingService.sayGreeting();
     }
 }
